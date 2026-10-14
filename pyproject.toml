@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=83,<84"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csvstat"
+version = "0.1.0"
+description = "Print per-column statistics for a CSV file."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.3,<10",
+    "ruff>=0.16.0,<0.17",
+]
+
+[project.scripts]
+csvstat = "csvstat.cli:main"
+
+[tool.setuptools]
+packages = ["csvstat"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
