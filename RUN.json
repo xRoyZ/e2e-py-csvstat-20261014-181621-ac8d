@@ -1,0 +1,18 @@
+{
+  "runcontract": 1,
+  "services": [
+    {
+      "name": "csvstat",
+      "dir": ".",
+      "stack": "python",
+      "kind": "cli",
+      "install": [["${python}", "-m", "pip", "install", "-q", "-e", ".[dev]"]],
+      "test": [["${python}", "-m", "pytest"]],
+      "lint": [
+        ["${python}", "-m", "ruff", "format", "--check", "."],
+        ["${python}", "-m", "ruff", "check", "."]
+      ],
+      "start": ["${python}", "-m", "csvstat", "--help"]
+    }
+  ]
+}
